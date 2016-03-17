@@ -1,0 +1,20 @@
+md-grid-tile:focus {
+    outline: none;
+    border: 0;
+
+}
+
+#image{
+    transition: all;
+    transition-duration: 1s;
+}
+md-grid-tile{
+    transition-property: all;
+    transition-duration: 1s;
+}
+
+md-grid-list{
+    transition-property: all;
+    transition-duration: 1s;
+
+}

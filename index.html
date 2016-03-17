@@ -1,0 +1,150 @@
+<html ng-app = "application">
+<head>
+
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body ng-controller = "main" id="body">
+<md-toolbar class="md-whiteframe-z2">
+    <div class="md-toolbar-tools" layout = "row" layout-align = "center center">
+        <h1>
+            <span>Pokedex</span>
+        </h1>
+    </div>
+</md-toolbar>
+<!--
+<div layout = "row">
+    <div flex = "20"></div>
+    <div  layout = "column" layout-margin>
+        <div  layout = "row " layout-margin ng-repeat="row in pockemons">
+                <md-whiteframe flex ng-repeat = "pokemon in row" class="md-whiteframe-3dp" ng-class="{'md-whiteframe-10dp' : chosen($parent.$index,$index)}" layout = "column" layout-align="center center" ng-click="chose($parent.$index,$index)">
+                    <img ng-src="http://pokeapi.co/media/img/{{pokemon.national_id}}.png">
+                    <span>{{pokemon.name}}</span>
+                </md-whiteframe>
+
+        </div>
+        <div layout = "row" layout-align = "center center">
+            <md-button  class="md-icon-button" aria-label="More" ng-click="loadMore()">
+                <i class="material-icons">expand_more</i>
+            </md-button>
+        </div>
+    </div>
+    <div flex="10"></div>
+    <div>
+        <md-whiteframe ng-show = "chosenItem!=null" class="md-whiteframe-3dp " layout = "column" layout-align="center center" style="position: fixed;bottom:40%;">
+            <img ng-src="http://pokeapi.co/media/img/{{chosenItem.national_id}}.png">
+
+            <table>
+                <tr>
+                    <td>Type</td>
+                    <td><p ng-repeat="type in chosenItem.types">{{type.name}}</p></td>
+                </tr>
+                <tr>
+                    <td>Attack</td>
+                    <td>{{chosenItem.attack}}</td>
+                </tr>
+                <tr>
+                    <td>Defense</td>
+                    <td>{{chosenItem.defense}}</td>
+                </tr>
+                <tr>
+                    <td>HP</td>
+                    <td>{{chosenItem.attack}}</td>
+                </tr>
+                <tr>
+                    <td>SP Attack</td>
+                    <td>{{chosenItem.sp_atk}}</td>
+                </tr>
+                <tr>
+                    <td>SP Defense</td>
+                    <td>{{chosenItem.sp_def}}</td>
+                </tr>
+                <tr>
+                    <td>Speed</td>
+                    <td>{{chosenItem.speed}}</td>
+                </tr>
+                <tr>
+                    <td>Weight</td>
+                    <td>{{chosenItem.weight}}</td>
+                </tr>
+                <tr>
+                    <td>Total moves</td>
+                    <td>{{chosenItem.moves.length}}</td>
+                </tr>
+            </table>
+
+        </md-whiteframe>
+    </div>
+
+</div>
+-->
+<div layout = "row">
+    <div flex = "35"></div>
+    <div flex >
+    <md-grid-list ng-if="loaded" md-cols="3" md-row-height="1:1" md-gutter="20px" >
+        <md-grid-tile class = "md-whiteframe-z1"ng-repeat="pokemon in pockemons" md-rowspan="{{pokemon.span}}" md-colspan="{{pokemon.span}}" ng-click="chose($index)">
+            <div layout = "row">
+            <div flex><div class=><img id = "image" ng-src="http://pokeapi.co/media/img/{{pokemon.national_id}}.png"></div></div>
+            <table id = "info" ng-if="chosen($index)">
+                <tr>
+                    <td>Type</td>
+                    <td><p ng-repeat="type in pokemon.types">{{type.name}}</p></td>
+                </tr>
+                <tr>
+                    <td>Attack</td>
+                    <td>{{pokemon.attack}}</td>
+                </tr>
+                <tr>
+                    <td>Defense</td>
+                    <td>{{pokemon.defense}}</td>
+                </tr>
+                <tr>
+                    <td>HP</td>
+                    <td>{{pokemon.attack}}</td>
+                </tr>
+                <tr>
+                    <td>SP Attack</td>
+                    <td>{{pokemon.sp_atk}}</td>
+                </tr>
+                <tr>
+                    <td>SP Defense</td>
+                    <td>{{pokemon.sp_def}}</td>
+                </tr>
+                <tr>
+                    <td>Speed</td>
+                    <td>{{pokemon.speed}}</td>
+                </tr>
+                <tr>
+                    <td>Weight</td>
+                    <td>{{pokemon.weight}}</td>
+                </tr>
+                <tr>
+                    <td>Total moves</td>
+                    <td>{{pokemon.moves.length}}</td>
+                </tr>
+            </table>
+            </div>
+            <md-grid-tile-footer>
+                <h3>{{pokemon.name}}</h3>
+            </md-grid-tile-footer>
+
+        </md-grid-tile>
+    </md-grid-list>
+        <md-button  class="md-icon-button" aria-label="More" ng-click="loadMore()">
+            <i class="material-icons">expand_more</i>
+        </md-button>
+    </div>
+    <div flex = "35"></div>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!-- Angular Material Library -->
+<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+<script src="js.js"></script>
+</body>
+</html>
